@@ -62,7 +62,7 @@ public class StockServiceImpl implements StockService {
 
         if (existingStockOptional.isPresent()) {
             stock = existingStockOptional.get();
-            // Update the stock entity using ModelMapper
+
             modelMapper.map(stockDTO, stock);
         } else {
             stock = modelMapper.map(stockDTO, Stock.class);

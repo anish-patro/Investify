@@ -112,7 +112,7 @@ public class TradeServiceImpl implements TradeService {
         portfolio.setTotalProfitLoss(Optional.ofNullable(portfolio.getTotalProfitLoss()).orElse(0.0) + gainLoss);
         pRepo.save(portfolio);
 
-        // Update Stock quantity
+
         stock.setQuantity(stock.getQuantity() + quantity);
         sRepo.save(stock);
 
@@ -125,7 +125,7 @@ public class TradeServiceImpl implements TradeService {
         portfolio.setTotalBuyPrice(0.0);
         portfolio.setTotalProfitLoss(0.0);
         portfolio.setTotalPLPercentage(0.0);
-        return pRepo.save(portfolio); // Persist the new Portfolio
+        return pRepo.save(portfolio);
     }
 
     public PortfolioStock createNewPortfolioStock(Portfolio portfolio, Stock stock, Integer quantity, Double buyPrice) {
@@ -134,7 +134,7 @@ public class TradeServiceImpl implements TradeService {
         portfolioStock.setStock(stock);
         portfolioStock.setQuantity(quantity);
         portfolioStock.setBuyPrice(buyPrice);
-        portfolioStock.setGainLoss(0.0); // Initialize gain/loss to 0
+        portfolioStock.setGainLoss(0.0);
 
         return psRepo.save(portfolioStock);
     }
